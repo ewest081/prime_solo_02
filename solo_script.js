@@ -3,9 +3,8 @@
 
 //1. Corrected the var input into the document.creatTextNode so it would display the appropriate array
 //2. Fixed a math error in getBaseSTI; mysterious -1
-//3. Added parseInt() and Math.round, and .toFixed() in numerous locations to get the output to diaplay properly
+//3. Added Math.round, and .toFixed() in numerous locations to get the output to diaplay properly
 //4. Created new displaySpace var to add spaces in displayed text of array
-//5.
 
 var arrayAtticus = ["Atticus", "2405", "47000", 3];
 var arrayJem = ["Jem", "62347", "63500", 4];
@@ -37,12 +36,10 @@ function calculateSTI(array1){
   var newArray = [];
 
   newArray[0] = array1[0];
-//parseInt the appropriate vars below so they'll be real numbers; add new var to truncate bonus percentage down to two decimal places.
-  var employeeNumber = parseInt(array1[1]);
-  var baseSalary = parseInt(array1[2]);
+  var employeeNumber = array1[1];
+  var baseSalary = array1[2];
   var reviewScore = array1[3]; 
-  var deciBonus = getBaseSTI(reviewScore) + getYearAdjustment(employeeNumber) - getIncomeAdjustment(baseSalary);
-  var bonus = deciBonus.toFixed(2);
+  var bonus = getBaseSTI(reviewScore) + getYearAdjustment(employeeNumber) - getIncomeAdjustment(baseSalary);
   if(bonus > 0.13){
     bonus = 0.13;
   }
@@ -90,7 +87,7 @@ function getYearAdjustment(employeeNumber){
 
 function getIncomeAdjustment(salary){
   var incomeAdjustment = 0;
-  salary = parseInt(salary);
+  salary = salary;
   if(salary > 65000){
     incomeAdjustment = 0.01;
   }
